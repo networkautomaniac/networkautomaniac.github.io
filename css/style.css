@@ -1,9 +1,8 @@
-/* CSS Styles */
-
 /* Reset default padding and margin for all elements */
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
 }
 
 /* Body */
@@ -12,6 +11,9 @@ body {
   font-family: "Poppins", sans-serif; /* Set font family to Poppins, fallback to sans-serif */
   font-weight: 400; /* Set the default font weight */
   font-style: normal; /* Set the default font style */
+  display: flex; /* Use flexbox layout for the body */
+  flex-direction: column; /* Arrange children in a column */
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
 }
 
 /* Navigation Bar */
@@ -19,107 +21,114 @@ nav {
   background-color: #ffffff; /* Set the background color (white) */
   display: flex; /* Use flexbox layout */
   justify-content: space-between; /* Align items on each end of the flex container */
-  padding-top: 10px; /* Add padding to the top */
-  padding-bottom: 10px; /* Add padding to the bottom */
   align-items: center; /* Vertically center items */
-  box-shadow: 0 4px 10px #cccccc; /* Add a box shadow with light gray color */
-  position: fixed; /* Make the navbar fixed */
-  top: 0; /* Align it to the top of the viewport */
-  width: 100%; /* Set full width */
+  padding: 10px auto; /* Add padding */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  position: fixed; /* Fix the navbar at the top */
+  top: 0;
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it's above other content */
 }
 
-/* Navigation List */
+.logo {
+  display: flex; /* Use flexbox for the logo */
+  align-items: center; /* Center vertically */
+}
+
+.logo img {
+  width: 75px; /* Set the logo width */
+  height: 75px; /* Set the logo height */
+  border-radius: 50%; /* Make it circular */
+  object-fit: cover; /* Ensure it covers the container */
+}
+
+/* Navigation Links */
 nav ul {
   display: flex; /* Use flexbox layout */
   list-style: none; /* Remove default list styles */
 }
 
-/* Navigation List Item */
 nav ul li {
-  padding-left: 10px; /* Add padding to the left */
+  margin-left: 10px; /* Add space between items */
 }
 
-/* Navigation Link */
 nav a {
-  color: #000000; /* Set text color  (black) */
-  text-decoration: none; /* Remove underline from links */
-  margin: 0 10px; /* Add space between links */
+  color: #000000; /* Set text color (black) */
+  text-decoration: none; /* Remove underline */
+  padding: 10px; /* Add padding for clickable area */
+  transition: all 0.3s ease; /* Smooth transition */
 }
 
-/* Navigation Link Hover */
 nav a:hover {
-  text-decoration: underline; /* Add underline on hover */
+  text-decoration: underline; /* Underline on hover */
 }
 
-/* Navigation Image */
-.logo img {
+/* Main Content */
+main {
+  flex: 1; /* Allow it to grow */
   display: flex; /* Use flexbox layout */
-  width: 75px; /* Set the width of the image */
-  height: 75px; /* Set the height of the image */
-  border-radius: 50%; /* Make the image a circle */
-  object-fit: cover; /* Ensure the image covers the entire circle */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
 }
 
-/* Index Container */
 .index-container {
-  background-color: #ffffff; /* Set the background color (white)*/
-  max-width: 800px; /* Set maximum width */
-  margin: 400px auto; /* Center the container and add top margin */
-  padding: 10px; /* Add padding */
-  box-shadow: 0 4px 10px #cccccc; /* Add a box shadow with light gray color */
+  background-color: #ffffff; /* Set the background color (white) */
+  width: 800px;
+  margin: 150px auto; /* Center the container and add top margin */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a box shadow with light gray color */
   border-radius: 5px; /* Add border radius for rounded corners */
+  text-align: center; /* Center text */
 }
 
-/* Centered Text */
-.centered-text {
-  text-align: center; /* Center-align the text */
-  margin-bottom: 20px; /* Add bottom margin */
+.index-text {
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
-/* Alternate Container */
+.social-icons {
+  display: flex; /* Flexbox layout */
+  justify-content: center; /* Center horizontally */
+  padding-bottom: 20px;
+}
+
+.social-icons a {
+  margin: 0 10px; /* Space between icons */
+  color: #333333; /* Icon color */
+  font-size: 24px; /* Icon size */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth transition */
+}
+
+.social-icons a:hover {
+  color: #0077b5; /* Change color on hover */
+}
+
 .alternate-container {
   background-color: #ffffff; /* Set the background color (white) */
-  max-width: 75%; /* Set maximum width */
-  margin: 150px auto; /* Center the container and add top margin */
-  box-shadow: 0 4px 10px #cccccc; /* Add a box shadow with light gray color */
+  width: 75%;
+  margin: 0 auto; /* Center the container horizontally */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add a box shadow with light gray color */
   border-radius: 5px; /* Add border radius for rounded corners */
   height: 1100px; /* Set a fixed height */
-}
-
-/* Alternate Container Iframe */
-.alternate-container iframe {
-  width: 100%; /* Ensure iframe takes full width of its container */
-  height: 100%; /* Ensure iframe takes full height of its container */
-}
-
-/* Footer */
-footer {
-  background-color: #ffffff; /* Set the background color (white) */
-  padding: 10px; /* Add padding */
-  text-align: center; /* Center-align the text */
-  position: fixed; /* Fix the position at the bottom */
-  bottom: 0; /* Align at the bottom */
-  width: 100%; /* Set full width */
+  overflow: hidden; /* Ensure content does not overflow */
   display: flex; /* Use flexbox layout */
   justify-content: center; /* Center content horizontally */
   align-items: center; /* Center content vertically */
 }
 
-/* Social Icons */
-.social-icons {
-  text-align: center; /* Center-align the text */
-  padding: 20px 0; /* Add padding to top and bottom */
+.alternate-container iframe {
+  width: 100%; /* Ensure iframe takes full width of its container */
+  height: 100%; /* Ensure iframe takes full height of its container */
+  border: none; /* Remove iframe border */
 }
 
-/* Social Icons Link */
-.social-icons a {
-  margin: 0 10px; /* Add margin to left and right */
-  color: #333; /* Set text color */
-  font-size: 24px; /* Set font size */
-  text-decoration: none; /* Remove underline */
-}
-
-/* Social Icon Link Hover */
-social-icons a:hover {
-  color: #0077b5; /* Change color on hover */
+/* Footer */
+footer {
+  background-color: #ffffff; /* White background */
+  padding: 10px; /* Padding inside */
+  text-align: center; /* Center text */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1); /* Subtle box shadow at top */
+  display: flex; /* Use flexbox layout */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically */
 }
