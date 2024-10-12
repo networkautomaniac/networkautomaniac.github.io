@@ -30,9 +30,14 @@ twitter_username: ""
 github_username:  "networkautomaniac"
 
 # Build settings
-theme: minima
+# theme: minima
 plugins:
   - jekyll-feed
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Exclude from processing.
 # The following items will not be processed, by default.
